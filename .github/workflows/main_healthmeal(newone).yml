@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'healthmealtest'
+      name: 'newone'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
@@ -57,15 +57,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_09730AA6251D452896207AA16BC09886 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_42FA380CB5BC49A6A71CE128311C1177 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2495D4B9F41C4420865C665F9C9FDF7D }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AC04A6E6340F4B8DA54ECA6FDEDD0565 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_927F45DD085647A7B2ACF74F267F045E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7295CD44DA7C4C878840E6B1D6F02C9E }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'healthmeal'
-          slot-name: 'healthmealtest'
+          slot-name: 'newone'
           package: .
           
